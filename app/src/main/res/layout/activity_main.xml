@@ -1,0 +1,39 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="16dp">
+    <ImageView
+        android:id="@+id/characterView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/beauty"
+        android:contentDescription="Character" />
+
+    <Button
+        android:id="@+id/recordButton"
+        android:layout_width="208dp"
+        android:layout_height="wrap_content"
+        android:text="Record Voice" />
+
+    <Button
+        android:id="@+id/playbackButton"
+        android:layout_width="214dp"
+        android:layout_height="wrap_content"
+        android:text="Play Back Voice" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="227dp"
+        android:layout_height="226dp"
+        app:srcCompat="@drawable/bella" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="match_parent"
+        android:layout_height="213dp"
+        app:srcCompat="@drawable/beauty" />
+</LinearLayout>
