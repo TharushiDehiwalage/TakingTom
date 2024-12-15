@@ -1,51 +1,60 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SplashActivity">
+    android:background="@color/cardview_dark_background"
+    android:padding="16dp">
 
-    <TextView
-        android:id="@+id/tvWelcome"
-        android:layout_width="324dp"
-        android:layout_height="149dp"
-        android:text="Welcome to my app"
-        android:textAlignment="center"
-        android:textColor="@android:color/holo_green_dark"
-        android:textSize="40sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.603" />
+
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="197dp"
-        android:layout_height="112dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.436"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.103"
-        app:srcCompat="@drawable/beauty" />
+        android:id="@+id/appLogo"
+        android:layout_width="279dp"
+        android:layout_height="255dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="110dp"
+        android:layout_marginEnd="48dp"
+        android:layout_marginBottom="350dp"
+        android:contentDescription="App Logo"
+        android:src="@drawable/welcomemic" />
 
     <TextView
-        android:id="@+id/textView2"
-        android:layout_width="334dp"
-        android:layout_height="39dp"
-        android:text="Powered By Tharushi Dehiwalage"
-        android:textAlignment="center"
-        android:textColor="@android:color/holo_red_dark"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.536"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.976" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:id="@+id/welcomeDescription"
+        android:layout_width="323dp"
+        android:layout_height="74dp"
+
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="54dp"
+        android:layout_marginTop="477dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="164dp"
+        android:fontFamily="sans-serif"
+        android:gravity="center"
+        android:text="Record your voice, play it back and have fun with Talking Tom...."
+        android:textColor="@color/cardview_light_background"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/developerInfo"
+        android:layout_width="289dp"
+        android:layout_height="62dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="653dp"
+        android:layout_marginEnd="34dp"
+        android:layout_marginBottom="0dp"
+        android:text="App Developed By Tharushi Dehiwalage"
+        android:textColor="#ffffbb33"
+        android:textSize="14sp" />
+
+</RelativeLayout>

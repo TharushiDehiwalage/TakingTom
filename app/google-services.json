@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "261959431315",
+    "project_id": "takingtom-f9f7d",
+    "storage_bucket": "takingtom-f9f7d.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:261959431315:android:25f73c90633421e5bb4966",
+        "android_client_info": {
+          "package_name": "com.example.takingtom"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAiWFri13MApz0tiJuSmsYlo0e65p1RKHA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
