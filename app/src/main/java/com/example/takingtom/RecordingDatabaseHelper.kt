@@ -42,4 +42,35 @@ class RecordingDatabaseHelper(context: Context) :
         }
         return db.insert(TABLE_NAME, null, values)
     }
+
+    fun getAllRecordings(): List<Recording> {
+        val db = readableDatabase
+        val recordings = mutableListOf<Recording>()
+        val cursor = db.rawQuery("SELECT * FROM $TABLE_NAME", null)
+
+        if (cursor.moveToFirst()) {
+            do {
+                val id = cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN_ID))
+                val path = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_PATH))
+                val timestamp = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_TIMESTAMP))
+                recordings.add(Recording(id, path, timestamp))
+            } while (cursor.moveToNext())
+        }
+        cursor.close()
+        return recordings
+    }
+
+    data class Recording(
+        val id: Int,
+        val path: String,
+        val timestamp: String
+    )
+
+    fun deleteRecording(id: Int): Int {
+        val db = writableDatabase
+        return db.delete(TABLE_NAME, "$COLUMN_ID = ?", arrayOf(id.toString()))
+    }
+
+
+
 }

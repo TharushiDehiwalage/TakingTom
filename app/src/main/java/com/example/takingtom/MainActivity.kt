@@ -18,10 +18,8 @@ import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 
-
 class MainActivity : AppCompatActivity() {
 
-    // UI Components
     private lateinit var recordButton: Button
     private lateinit var playbackButton: Button
     private lateinit var viewRecordingsButton: Button
@@ -29,18 +27,15 @@ class MainActivity : AppCompatActivity() {
     private lateinit var logoutButton: Button
     private lateinit var audioWaveView: AudioWaveView
 
-    // Recording and Playback
     private var mediaRecorder: MediaRecorder? = null
     private var mediaPlayer: MediaPlayer? = null
     private var audioFilePath: String = ""
     private var isRecording = false
 
-    // Timer
     private val handler = Handler(Looper.getMainLooper())
     private var elapsedTime = 0
     private var timerRunnable: Runnable? = null
 
-    // Database Helper
     private lateinit var dbHelper: RecordingDatabaseHelper
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -127,7 +122,6 @@ class MainActivity : AppCompatActivity() {
             stopWaveformUpdates()
             stopTimer()
 
-            // Save recording metadata to database
             val timestamp = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(Date())
             dbHelper.insertRecording(audioFilePath, timestamp)
             Toast.makeText(this, "Recording saved", Toast.LENGTH_SHORT).show()
@@ -145,13 +139,18 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun startPlayback() {
-        mediaPlayer = MediaPlayer().apply {
-            setDataSource(audioFilePath)
-            prepare()
-            start()
+        try {
+            mediaPlayer = MediaPlayer().apply {
+                setDataSource(audioFilePath)
+                prepare()
+                start()
+            }
+            playbackButton.text = "Stop Playback"
+            mediaPlayer?.setOnCompletionListener { stopPlayback() }
+        } catch (e: Exception) {
+            e.printStackTrace()
+            Toast.makeText(this, "Unable to play the audio.", Toast.LENGTH_SHORT).show()
         }
-        playbackButton.text = "Stop Playback"
-        mediaPlayer?.setOnCompletionListener { stopPlayback() }
     }
 
     private fun stopPlayback() {
